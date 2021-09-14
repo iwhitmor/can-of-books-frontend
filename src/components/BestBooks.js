@@ -35,14 +35,14 @@ class BestBooks extends React.Component {
         <h2>Books</h2>
 
         {this.state.books ? (
+
           <div>{this.state.books.map((book, idx) => (
             <div key={idx}>
               <p>{book.title}</p>
               <p>{book.description}</p>
               <p>{book.rating}</p>
               <p>{book.email}</p>
-            </div>
-          ))}
+            </div> ))}
           </div>
         ) :
           <h3>No Books Found :(</h3>
