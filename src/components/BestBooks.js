@@ -30,6 +30,18 @@ class BestBooks extends React.Component {
     const books = this.state.books;
     console.log(books);
 
+    if (!books) {
+      return (
+        <p>Loading...</p>
+      );
+    }
+
+    if (books.length === 0) {
+      return (
+        <p>No books</p>
+      );
+    }
+
     return (
       <>
         <h2>Books</h2>
