@@ -5,7 +5,7 @@ class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: { books: null },
+      books: null,
     }
   }
 
@@ -27,17 +27,26 @@ class BestBooks extends React.Component {
 
   render() {
 
-   const books = this.state.books;
+    const books = this.state.books;
+    console.log(books);
 
     return (
       <>
         <h2>Books</h2>
 
-        {this.state.books.length ? (
-          <p>Book Carousel coming soon</p>
-        ) : (
+        {this.state.books ? (
+          <div>{this.state.books.map((book, idx) => (
+            <div key={idx}>
+              <p>{book.title}</p>
+              <p>{book.description}</p>
+              <p>{book.rating}</p>
+              <p>{book.email}</p>
+            </div>
+          ))}
+          </div>
+        ) :
           <h3>No Books Found :(</h3>
-        )}
+        }
       </>
     )
   }
