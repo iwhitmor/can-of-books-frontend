@@ -5,7 +5,7 @@ class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: { books: null },
     }
   }
 
@@ -18,7 +18,7 @@ class BestBooks extends React.Component {
     try {
       let results = await axios.get(apiUrl);
       this.setState({ books: results.data });
-      console.log(results);
+      console.log('Books', results);
     }
     catch (err) {
       console.log(err);
@@ -27,11 +27,11 @@ class BestBooks extends React.Component {
 
   render() {
 
-    /* TODO: render user's books in a Carousel */
+   const books = this.state.books;
 
     return (
       <>
-        <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
+        <h2>Books</h2>
 
         {this.state.books.length ? (
           <p>Book Carousel coming soon</p>
