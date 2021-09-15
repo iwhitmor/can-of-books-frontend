@@ -8,7 +8,7 @@ class BestBooks extends React.Component {
     super(props);
     this.state = {
       books: null,
-    }
+    };
   }
 
   componentDidMount() {
@@ -47,6 +47,8 @@ class BestBooks extends React.Component {
   }
 
 
+
+
   render() {
 
     const books = this.state.books;
@@ -67,7 +69,7 @@ class BestBooks extends React.Component {
     return (
       <>
         <h2>Books</h2>
-        <button><CreateBook onSave={this.handleSave} />Add A Book</button>
+        <CreateBook onSave={this.handleSave} />
           <div>{this.state.books.map((book, idx) => (
             <div key={idx}>
               <p>{book.title}</p>

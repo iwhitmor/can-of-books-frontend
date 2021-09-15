@@ -7,7 +7,7 @@ export default class CreateBook extends React.Component {
     super(props)
 
     this.state = {
-      showModal: true,
+      showModal: false,
     };
   }
 
@@ -29,6 +29,10 @@ export default class CreateBook extends React.Component {
     elements.title.focus();
   }
 
+  showModalonClick = () => {
+    this.setState({showModal: true});
+  }
+
   handleClose = () => {
     console.log('Please Hide Modal');
     this.setState({showModal: false});
@@ -36,6 +40,8 @@ export default class CreateBook extends React.Component {
 
   render() {
     return (
+      <>
+      <button onClick={this.showModalonClick}>Add A Book</button>
       <Modal show={this.state.showModal} onHide={this.handleClose} >
         <Modal.Header closeButton>
           <Modal.Title>Add A Book</Modal.Title>
@@ -51,6 +57,7 @@ export default class CreateBook extends React.Component {
           </form>
         </Modal.Body>
       </Modal>
+      </>
     )
   }
 }
