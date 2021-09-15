@@ -36,7 +36,7 @@ export default class CreateBook extends React.Component {
 
   render() {
     return (
-      <Modal show={this.state.showModal} >
+      <Modal show={this.state.showModal} onHide={this.handleClose} >
         <Modal.Header closeButton>
           <Modal.Title>Add A Book</Modal.Title>
         </Modal.Header>
