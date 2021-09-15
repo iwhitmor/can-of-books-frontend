@@ -36,6 +36,17 @@ class BestBooks extends React.Component {
     this.fetchBooks();
   }
 
+  handleDelete = async bookId => {
+    let apiUrl = `{SERVER}/books/${bookId}`;
+    await axios.delete(apiUrl);
+
+    this.setState(state => ({
+      books: state.books.filter(book => book._id !== bookId)
+    }));
+    console.log(this.state.books);
+  }
+
+
   render() {
 
     const books = this.state.books;
@@ -63,6 +74,7 @@ class BestBooks extends React.Component {
               <p>{book.description}</p>
               <p>Rating: {book.rating}</p>
               <p>{book.email}</p>
+              <button onClick={() => this.handleDelete(book._id)}> Delete Book </button>
             </div> ))}
           </div>
       </>
