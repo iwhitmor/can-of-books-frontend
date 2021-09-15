@@ -1,4 +1,6 @@
 import React from 'react';
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 export default class CreateBook extends React.Component {
   handleSubmit = event => {
@@ -12,7 +14,7 @@ export default class CreateBook extends React.Component {
       rating: elements.rating.value,
     }
     console.log('saving', formData);
-    
+
     this.props.onSave(formData);
 
     event.target.reset();
@@ -21,14 +23,23 @@ export default class CreateBook extends React.Component {
 
   render() {
     return (
-      <form method="post" onSubmit={this.handleSubmit}>
-        <input placeholder="Book Title" name="title" />
-        <input placeholder="Quick Description" name="description" />
-        <input placeholder="Book Rating" name="rating" />
-        <button type="submit">
-          Save Book!
-        </button>
-      </form>
+      <Modal show={true} >
+        <Modal.Header closeButton>
+          <Modal.Title>Add A Book</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form method="post" onSubmit={this.handleSubmit}>
+            <input placeholder="Book Title" name="title" />
+            <input placeholder="Quick Description" name="description" />
+            <input placeholder="Book Rating" name="rating" />
+            <Button variant="secondary" type="submit">
+              Save Book!
+            </Button>
+          </form>
+        </Modal.Body>
+      </Modal>
     )
   }
 }
+
+

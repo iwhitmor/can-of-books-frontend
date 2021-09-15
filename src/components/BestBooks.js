@@ -67,7 +67,7 @@ class BestBooks extends React.Component {
     return (
       <>
         <h2>Books</h2>
-        <div><CreateBook onSave={this.handleSave} /></div>
+        <button><CreateBook onSave={this.handleSave} />Add A Book</button>
           <div>{this.state.books.map((book, idx) => (
             <div key={idx}>
               <p>{book.title}</p>
