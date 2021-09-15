@@ -32,6 +32,8 @@ class BestBooks extends React.Component {
     let results = await axios.post(apiUrl, bookInfo);
     let newBook = results.data;
     console.log(newBook);
+
+    this.fetchBooks();
   }
 
   render() {
