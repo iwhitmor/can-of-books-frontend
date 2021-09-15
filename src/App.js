@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import BestBooks from './components/BestBooks';
 import Profile from './components/Profile'
+import CreateBook from './components/CreateBook';
 
 class App extends React.Component {
 
@@ -38,6 +39,7 @@ class App extends React.Component {
           <Header user={this.state.user} onLogout={this.logoutHandler} />
           <Switch>
             <Route exact path="/">
+              <CreateBook />
               <BestBooks />
             </Route>
             <Route exact path="/Profile">
