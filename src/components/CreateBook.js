@@ -7,10 +7,10 @@ export default class CreateBook extends React.Component {
     super(props)
 
     this.state = {
-      showModal: false,
+      showModal: true,
     };
   }
-  
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -36,7 +36,7 @@ export default class CreateBook extends React.Component {
 
   render() {
     return (
-      <Modal show={true} >
+      <Modal show={this.state.showModal} >
         <Modal.Header closeButton>
           <Modal.Title>Add A Book</Modal.Title>
         </Modal.Header>
