@@ -37,7 +37,7 @@ class BestBooks extends React.Component {
   }
 
   handleDelete = async bookId => {
-    let apiUrl = `{SERVER}/books/${bookId}`;
+    let apiUrl = `${SERVER}/books/${bookId}`;
     await axios.delete(apiUrl);
 
     this.setState(state => ({
