@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React from 'react';
+import CreateBook from './CreateBook';
+const SERVER = process.env.REACT_APP_SERVER;
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class BestBooks extends React.Component {
   }
 
   async fetchBooks() {
-    let apiUrl = `${process.env.REACT_APP_SERVER}/books`;
+    let apiUrl = `${SERVER}/books`;
     try {
       let results = await axios.get(apiUrl);
       this.setState({ books: results.data });
@@ -23,6 +25,13 @@ class BestBooks extends React.Component {
     catch (err) {
       console.log(err);
     }
+  }
+
+  handleSave = async bookInfo => {
+    let apiUrl = `${SERVER}/books`;
+    let results = await axios.post(apiUrl, bookInfo);
+    let newBook = results.data;
+    console.log(newBook);
   }
 
   render() {
@@ -45,6 +54,7 @@ class BestBooks extends React.Component {
     return (
       <>
         <h2>Books</h2>
+        <div><CreateBook onSave={this.handleSave} /></div>
           <div>{this.state.books.map((book, idx) => (
             <div key={idx}>
               <p>{book.title}</p>
