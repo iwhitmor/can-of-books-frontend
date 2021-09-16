@@ -17,6 +17,7 @@ export default class UpdateBook extends React.Component {
     let elements = event.target.elements;
 
     let formData = {
+      id: this.props.book._id,
       title: elements.name.value,
       description: elements.description.value,
       rating: elements.rating.value,
