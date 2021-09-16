@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Carousel, Jumbotron } from 'react-bootstrap';
 import CreateBook from './CreateBook';
 const SERVER = process.env.REACT_APP_SERVER;
 
@@ -70,18 +71,37 @@ class BestBooks extends React.Component {
       <>
         <h2>Books</h2>
         <CreateBook onSave={this.handleSave} />
-          <div>{this.state.books.map((book, idx) => (
-            <div key={idx}>
-              <p>{book.title}</p>
-              <p>{book.description}</p>
-              <p>Rating: {book.rating}</p>
-              <p>{book.email}</p>
+
+        <Carousel variant="dark">
+          {this.state.books.map((book, idx) => (
+            <Carousel.Item key={idx}>
+              <Jumbotron>
+                <h3>{book.title}</h3>
+                <p>{book.description}</p>
+                <p>Rating: {book.rating}</p>
+                <p>{book.email}</p>
               <button onClick={() => this.handleDelete(book._id)}> Delete Book </button>
-            </div> ))}
-          </div>
+              </Jumbotron>
+            </Carousel.Item>
+          ))}
+        </Carousel>
       </>
     )
   }
 }
 
 export default BestBooks;
+
+
+
+
+
+// <div>{this.state.books.map((book, idx) => (
+//   <div key={idx}>
+//     <p>{book.title}</p>
+//     <p>{book.description}</p>
+//     <p>Rating: {book.rating}</p>
+//     <p>{book.email}</p>
+//     <button onClick={() => this.handleDelete(book._id)}> Delete Book </button>
+//   </div>))}
+// </div>

@@ -30,33 +30,33 @@ export default class CreateBook extends React.Component {
   }
 
   showModalonClick = () => {
-    this.setState({showModal: true});
+    this.setState({ showModal: true });
   }
 
   handleClose = () => {
     console.log('Please Hide Modal');
-    this.setState({showModal: false});
+    this.setState({ showModal: false });
   }
 
   render() {
     return (
       <>
-      <button onClick={this.showModalonClick}>Add A Book</button>
-      <Modal show={this.state.showModal} onHide={this.handleClose} >
-        <Modal.Header closeButton>
-          <Modal.Title>Add A Book</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form method="post" onSubmit={this.handleSubmit}>
-            <input placeholder="Book Title" name="title" />
-            <input placeholder="Quick Description" name="description" />
-            <input placeholder="Book Rating" name="rating" />
-            <Button onClick={this.handleClose} variant="secondary" type="submit">
-              Save Book!
-            </Button>
-          </form>
-        </Modal.Body>
-      </Modal>
+        <button onClick={this.showModalonClick}>Add A Book</button>
+        <Modal show={this.state.showModal} onHide={this.handleClose} >
+          <Modal.Header closeButton>
+            <Modal.Title>Add A Book</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form method="post" onSubmit={this.handleSubmit}>
+              <input placeholder="Book Title" name="title" />
+              <input placeholder="Quick Description" name="description" />
+              <input placeholder="Book Rating" name="rating" />
+              <Button onClick={this.handleClose} variant="secondary" type="submit">
+                Save Book!
+              </Button>
+            </form>
+          </Modal.Body>
+        </Modal>
       </>
     )
   }
