@@ -12,13 +12,12 @@ export default class UpdateBook extends React.Component {
   }
 
   handleSubmit = event => {
-    event.preventdefault();
+    event.preventDefault();
 
     let elements = event.target.elements;
 
     let formData = {
-      id: this.props.book._id,
-      title: elements.name.value,
+      title: elements.title.value,
       description: elements.description.value,
       rating: elements.rating.value,
       email: this.props.book.email,
