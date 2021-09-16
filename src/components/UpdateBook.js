@@ -43,10 +43,6 @@ export default class UpdateBook extends React.Component {
 
   render() {
 
-    // let { book } = this.props;
-
-    // if (!book) return null;
-
     return (
       <>
         <Button onClick={this.showModalOnClick} variant="secondary">Update Book</Button>
