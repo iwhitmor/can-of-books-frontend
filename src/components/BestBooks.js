@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import './jumbotron.css';
 import { Carousel, Jumbotron } from 'react-bootstrap';
 import CreateBook from './CreateBook';
 const SERVER = process.env.REACT_APP_SERVER;
@@ -72,15 +73,15 @@ class BestBooks extends React.Component {
         <h2>Books</h2>
         <CreateBook onSave={this.handleSave} />
 
-        <Carousel variant="dark">
+        <Carousel>
           {this.state.books.map((book, idx) => (
             <Carousel.Item key={idx}>
-              <Jumbotron>
+              <Jumbotron id="jumbotron">
                 <h3>{book.title}</h3>
                 <p>{book.description}</p>
                 <p>Rating: {book.rating}</p>
                 <p>{book.email}</p>
-              <button onClick={() => this.handleDelete(book._id)}> Delete Book </button>
+                <button onClick={() => this.handleDelete(book._id)}> Delete Book </button>
               </Jumbotron>
             </Carousel.Item>
           ))}
