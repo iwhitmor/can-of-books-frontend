@@ -40,7 +40,7 @@ class BestBooks extends React.Component {
   }
 
   handleUpdate = async (bookId, bookInfo) => {
-    let apiUrl = `${SERVER}/books`;
+    let apiUrl = `${SERVER}/books/${bookId}`;
     await axios.put(apiUrl, bookInfo);
 
     this.fetchBooks();
@@ -75,9 +75,8 @@ class BestBooks extends React.Component {
 
     return (
       <>
-        <h2>Books</h2>
+        <h2 id="h2">Books</h2>
         <CreateBook onSave={this.handleSave} />
-
         <Carousel>
           {this.state.books.map((book, idx) => (
             <Carousel.Item key={idx}>
@@ -86,7 +85,7 @@ class BestBooks extends React.Component {
                 <p>{book.description}</p>
                 <p>Rating: {book.rating}</p>
                 <p>{book.email}</p>
-                <UpdateBook onUpdate={this.handleUpdate} />
+                <UpdateBook book={book} onUpdate={this.handleUpdate} />
                 <Button onClick={() => this.handleDelete(book._id)} variant="secondary"> Delete Book </Button>
               </Jumbotron>
             </Carousel.Item>

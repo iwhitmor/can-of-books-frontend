@@ -20,15 +20,13 @@ export default class UpdateBook extends React.Component {
       title: elements.name.value,
       description: elements.description.value,
       rating: elements.rating.value,
+      email: this.props.book.email,
     }
 
     console.log('updating', formData);
 
     let id = this.props.book._id;
     this.props.onUpdate(id, formData);
-
-    event.target.reset();
-    elements.name.focus();
 
   }
 
@@ -51,7 +49,7 @@ export default class UpdateBook extends React.Component {
             <Modal.Title>Update This Book</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form method="post" onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <input placeholder="Book Title" name="title" />
               <input placeholder="Quick Description" name="description" />
               <input placeholder="Book Rating" name="rating" />
