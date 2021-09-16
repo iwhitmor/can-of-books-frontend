@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React from 'react';
 import './jumbotron.css';
-import { Carousel, Jumbotron } from 'react-bootstrap';
+import { Carousel, Jumbotron, Button } from 'react-bootstrap';
 import CreateBook from './CreateBook';
+import UpdateBook from './UpdateBook';
 const SERVER = process.env.REACT_APP_SERVER;
 
 class BestBooks extends React.Component {
@@ -38,6 +39,13 @@ class BestBooks extends React.Component {
     this.fetchBooks();
   }
 
+  handleUpdate = async (bookId, bookInfo) => {
+    let apiUrl = `${SERVER}/books`;
+    await axios.put(apiUrl, bookInfo);
+
+    this.fetchBooks();
+  }
+
   handleDelete = async bookId => {
     let apiUrl = `${SERVER}/books/${bookId}`;
     await axios.delete(apiUrl);
@@ -47,9 +55,6 @@ class BestBooks extends React.Component {
     }));
     console.log(this.state.books);
   }
-
-
-
 
   render() {
 
@@ -81,7 +86,8 @@ class BestBooks extends React.Component {
                 <p>{book.description}</p>
                 <p>Rating: {book.rating}</p>
                 <p>{book.email}</p>
-                <button onClick={() => this.handleDelete(book._id)}> Delete Book </button>
+                <UpdateBook onUpdate={this.handleUpdate} />
+                <Button onClick={() => this.handleDelete(book._id)} variant="secondary"> Delete Book </Button>
               </Jumbotron>
             </Carousel.Item>
           ))}
