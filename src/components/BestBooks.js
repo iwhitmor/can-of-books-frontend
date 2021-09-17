@@ -75,7 +75,7 @@ class BestBooks extends React.Component {
 
     return (
       <>
-        <h2 id="h2">Books</h2>
+        <h2 className="text-center" style={{width: "100%"}} id="h2">Books</h2>
         <CreateBook onSave={this.handleSave} />
         <Carousel>
           {this.state.books.map((book, idx) => (
