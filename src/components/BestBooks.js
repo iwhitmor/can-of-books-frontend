@@ -86,6 +86,7 @@ class BestBooks extends React.Component {
                 <p>Rating: {book.rating}</p>
                 <p>{book.email}</p>
                 <UpdateBook book={book} onUpdate={this.handleUpdate} />
+                <> </>
                 <Button onClick={() => this.handleDelete(book._id)} variant="secondary"> Delete Book </Button>
               </Jumbotron>
             </Carousel.Item>
