@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
-export default class CreateBook extends React.Component {
+export default class UpdateBook extends React.Component {
   constructor(props) {
     super(props)
 
@@ -15,18 +15,19 @@ export default class CreateBook extends React.Component {
     event.preventDefault();
 
     let elements = event.target.elements;
-    console.log(event.target.elements);
+
     let formData = {
       title: elements.title.value,
       description: elements.description.value,
       rating: elements.rating.value,
+      email: this.props.book.email,
     }
-    console.log('saving', formData);
 
-    this.props.onSave(formData);
+    console.log('updating', formData);
 
-    event.target.reset();
-    elements.title.focus();
+    let id = this.props.book._id;
+    this.props.onUpdate(id, formData);
+
   }
 
   showModalOnClick = () => {
@@ -39,20 +40,21 @@ export default class CreateBook extends React.Component {
   }
 
   render() {
+
     return (
       <>
-        <Button onClick={this.showModalOnClick} variant ="secondary">Add A Book</Button>
+        <Button onClick={this.showModalOnClick} variant="secondary">Update Book</Button>
         <Modal show={this.state.showModal} onHide={this.handleClose} >
           <Modal.Header closeButton>
-            <Modal.Title>Add A Book</Modal.Title>
+            <Modal.Title>Update This Book</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form method="post" onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <input placeholder="Book Title" name="title" />
               <input placeholder="Quick Description" name="description" />
               <input placeholder="Book Rating" name="rating" />
               <Button onClick={this.handleClose} variant="secondary" type="submit">
-                Save Book
+                Update Book
               </Button>
             </form>
           </Modal.Body>
@@ -61,5 +63,3 @@ export default class CreateBook extends React.Component {
     )
   }
 }
-
-
