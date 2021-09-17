@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import './createBook.css';
 
 export default class CreateBook extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ export default class CreateBook extends React.Component {
   render() {
     return (
       <>
-        <Button onClick={this.showModalOnClick} variant ="secondary">Add A Book</Button>
+        <Button class="row justify-content-center" style={{width: "25%"}} onClick={this.showModalOnClick} variant ="secondary">Add A Book</Button>
         <Modal show={this.state.showModal} onHide={this.handleClose} >
           <Modal.Header closeButton>
             <Modal.Title>Add A Book</Modal.Title>
