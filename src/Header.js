@@ -8,7 +8,7 @@ class Header extends React.Component {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand className="text-center">My Favorite Books</Navbar.Brand>
-        <NavItem><Link  to="/" className="nav-link">Home</Link></NavItem>
+        <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
         {this.props.user
           ? <NavItem><Link to="/Profile" className="nav-link">Profile</Link></NavItem>
           : ''
