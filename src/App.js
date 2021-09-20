@@ -15,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: { email : 'fscotfitz@gatsby.com' },
+      user: null,
     }
   }
 
@@ -35,6 +35,7 @@ class App extends React.Component {
     return (
       <>
         <Router>
+        
           <Header user={this.state.user} onLogout={this.logoutHandler} />
           <Switch>
             <Route exact path="/">
