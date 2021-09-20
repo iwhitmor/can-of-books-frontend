@@ -9,13 +9,14 @@ import {
 } from "react-router-dom";
 import BestBooks from './components/BestBooks';
 import Profile from './components/Profile'
+import LoginButton from './components/LoginButton'
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      user: { email : 'fscotfitz@gatsby.com' },
+      user: null,
     }
   }
 
@@ -35,6 +36,7 @@ class App extends React.Component {
     return (
       <>
         <Router>
+        
           <Header user={this.state.user} onLogout={this.logoutHandler} />
           <Switch>
             <Route exact path="/">

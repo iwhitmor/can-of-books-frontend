@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, NavItem } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './Header.css';
+import LoginButton from './components/LoginButton'
 
 class Header extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class Header extends React.Component {
           : ''
         }
         {/* TODO: if the user is logged in, render the `LogoutButton` */}
+        <LoginButton />
       </Navbar>
     )
   }

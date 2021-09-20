@@ -98,17 +98,3 @@ class BestBooks extends React.Component {
 }
 
 export default BestBooks;
-
-
-
-
-
-// <div>{this.state.books.map((book, idx) => (
-//   <div key={idx}>
-//     <p>{book.title}</p>
-//     <p>{book.description}</p>
-//     <p>Rating: {book.rating}</p>
-//     <p>{book.email}</p>
-//     <button onClick={() => this.handleDelete(book._id)}> Delete Book </button>
-//   </div>))}
-// </div>
